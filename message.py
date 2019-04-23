@@ -25,23 +25,6 @@ _code = {
     0xD9: {'val': 'Generic AP Notification', 'sub_code': {0x00: None}}
 }
 
-
-class Reports:
-    name = 'MU/Tag Reports'
-
-    def __init__(self, pkt):
-        self.header = pkt[:2]
-        self.request_id = pkt[2:4]
-        self.code = pkt[4:5]
-        self.sub_code = pkt[5:6]
-        self.data_length = pkt[6:8]
-
-        if self.code == b'\xD5':
-            self.data_payload = get_D5_payload(pkt[8:])
-        elif self.code == b'\xD6':
-            self.data_payload = get_D6_payload(pkt[8:])
-
-
 class Msg:
     name = 'AeroScout Protocol Data Unit Structure'
 
