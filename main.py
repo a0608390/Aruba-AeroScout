@@ -7,7 +7,7 @@ aps = {}
 
 class ArubaAero(BaseRequestHandler):
     def handle(self):
-        # print ap dict,get ap's request and last code.
+        # print ap dict,get ap's request id and last message code.
         for k,v in aps.items():
             print(k.hex(),v[0],v[1].hex(),v[2],sep='-:-')
         try:
