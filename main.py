@@ -7,7 +7,9 @@ aps = {}
 
 class ArubaAero(BaseRequestHandler):
     def handle(self):
-        print(aps)
+        # print ap dict,get ap's request and last code.
+        for k,v in aps.items():
+            print(k.hex(),v[0],v[1].hex(),v[2],sep='-:-')
         try:
             while True:
                 pkt = self.request[0]
