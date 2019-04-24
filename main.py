@@ -9,7 +9,7 @@ class ArubaAero(BaseRequestHandler):
     def handle(self):
         # print ap dict,get ap's request id and last message code.
         for k,v in aps.items():
-            print(k.hex(),v[0],v[1].hex(),v[2],sep='-:-')
+            print(k.hex(),v[0],v[1].hex(),v[2],sep='|-:-|')
         try:
             while True:
                 pkt = self.request[0]
@@ -61,7 +61,7 @@ class ArubaAero(BaseRequestHandler):
 
 
 if __name__ == '__main__':
-    host = ('10.10.254.27', 12092)
+    host = ('10.10.254.8', 12092)
 
     server = UDPServer(host, ArubaAero)
     server.serve_forever()
