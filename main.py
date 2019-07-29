@@ -50,7 +50,10 @@ class ArubaAero(BaseRequestHandler):
                 elif ap_msg.code == b'\xD0' and aps[ap_msg.data_payload.get('ap_mac_address')][1] == b'\xD4':
                     aps[ap_msg.data_payload.get('ap_mac_address')][2] += 1
                     aps[ap_msg.data_payload.get('ap_mac_address')][1] = ap_msg.code
+                    # MU Report start
                     set_msg = ap_msg.B4_pkt(aps[ap_msg.data_payload.get('ap_mac_address')][2])
+                    # Tag Report Start
+                    # set_msg = ap_msg.B3_pkt(aps[ap_msg.data_payload.get('ap_mac_address')][2])
                     server.sendto(set_msg, addr)
                     break
                 else:
